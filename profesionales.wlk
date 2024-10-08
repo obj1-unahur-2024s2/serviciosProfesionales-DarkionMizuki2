@@ -33,5 +33,7 @@
   }
 
   class ProfesionalLibre inherits Profesional{
-
+      method agregar(unaProvincia){
+        provincias.add(unaProvincia)
+      }
   }
