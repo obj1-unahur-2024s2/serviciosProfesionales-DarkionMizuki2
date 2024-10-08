@@ -3,12 +3,12 @@ import universidades.*
 class EmpresaDeServicios{
     const profesionalesContratados=[]
     var honorarioDeReferencia=0
-    method contratar(unEmpleado){
-        profesionalesContratados.add(unEmpleado)
-    }
-    method establecerHonorarioDeReferenciaA(unDeterminadoValor){
-        honorarioDeReferencia=unDeterminadoValor
-    }
+    //method contratar(unEmpleado){
+    //    profesionalesContratados.add(unEmpleado)
+    //}
+    //method establecerHonorarioDeReferenciaA(unDeterminadoValor){
+    //    honorarioDeReferencia=unDeterminadoValor
+    //}
     method cuantosProfesionalesEstudioEn(unaUniversidad){
         return profesionalesContratados.count({p=>p.universidadQueEstudia()==unaUniversidad})
     }
