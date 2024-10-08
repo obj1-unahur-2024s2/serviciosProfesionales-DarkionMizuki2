@@ -1,8 +1,17 @@
-import example.pepita
+import profesionales.*
+import universidades.*
+import empresaDeServicios.*
 
 describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
+  test "test de la etapa 1" {
+    //universidades
+    const sanMartin = new Universidad(provincia="Buenos Aires",honorariosQueRecomienda=3500)
+    const rosario = new Universidad(provincia="Santa Fe",honorariosQueRecomienda=2800)
+    const corrientes = new Universidad(provincia="Corrientes",honorariosQueRecomienda=4200)
+    const hurlingham = new Universidad(provincia="Buenos Aires",honorariosQueRecomienda=8800)
+    //profesionales
+    const juana = new ProfesionalVinculadoAUniversidad(universidadQueEstudia=rosario,honorarios=juana.honorarios(),provincias=juana.provincias())
     assert.equals(100, pepita.energy())
   }
 
