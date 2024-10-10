@@ -11,7 +11,7 @@ describe "Test correspondientes a etapa 1"{
 	const juana = new ProfesionalVinculado(universidad=rosario)
 	const melina = new ProfesionalAsociado(universidad=corrientes)
 	const rocio = new ProfesionalLibre(universidad=hurlingham,honorarios=5000,provinciasDondeTrabaja=["Santa Fe","Cordoba","Buenos Aires"])
-	const rocio = new ProfesionalLibre(universidad=rosario,honorarios=3200,provinciasDondeTrabaja=["Santa Fe","Entre Rios"])
+	const luciana = new ProfesionalLibre(universidad=rosario,honorarios=3200,provinciasDondeTrabaja=["Santa Fe","Entre Rios"])
 
 	const empresa1 = new Empresa(honorariosDeReferencia=3500)
 	method initialize(){
@@ -37,11 +37,11 @@ describe "Test correspondientes a etapa 1"{
 		assert.equals(juana,empresa1.profesionalMasBarato())
 	}
 	test "es de gente acotada"{
-		assert.that(emprasa1.esDeGenteAcotada())
+		assert.that(empresa1.esDeGenteAcotada())
 	}
 	test "si a luciana le agregamos corrientes y misiones, ya no es de gente acotada"{
 		luciana.agregarProvincia("Corrientes")
 		luciana.agregarProvincia("Misiones")
-		assert.notThat(emprasa1.esDeGenteAcotada())
+		assert.notThat(empresa1.esDeGenteAcotada())
 	}
 }
