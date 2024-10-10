@@ -1,39 +1,39 @@
-  import universidades.*
-  class Profesional{
-    var universidadQueEstudia=null
-    var honorarios=0
-    const provincias=[]
-    method honorarios(){
-      return honorarios
-    }
-    method provincias(){
-      return provincias
-    }
-    method universidadQueEstudia(){
-      return universidadQueEstudia
-    }
-  }
+  class ProfesionalVinculado{
+	const property universidad
+	method honorarios() = universidad.honorariosRecomendados()
+	method provinciasDondeTrabaja() = [universidad.provincia()]
+	method cobrar(unImporte){
+		universidad.recibirDonaciones(unImporte*0.5)
+	}
+}
 
-  class ProfesionalVinculadoAUniversidad inherits Profesional{
-    override method honorarios(){
-      return universidadQueEstudia.honorariosQueRecomienda()
-    }
-    override method provincias(){
-      return [universidadQueEstudia.provincia()]
-    }
+class ProfesionalAsociado{
+	var property universidad
+	method provinciasDondeTrabaja() = ["Entre Rios","Santa Fe","Corrientes"]
+	method honorarios() = 3000
+	method cobrar(unImporte){
+		asociacion.recibirDonacion(unImporte)
+	}
+}
 
-  }
-  class ProfesionalAsociadoAlLitoral inherits Profesional{
-    override method honorarios(){
-      return 3000
-    }
-    override method provincias(){
-      return ["Entre Rios","Santa Fe","Corrientes"]
-    }
-  }
+class ProfesionalLibre{
+	var property universidad
+	const property provinciasDondeTrabaja = []
+	var property honorarios
+	var totalRecaudado = 0
+	method totalRecaudado() = totalRecaudado
+	method agregarProvincia(unaProvincia) {provinciasDondeTrabaja.add(unaProvincia)}
+	method cobrar(unImporte){
+		totalRecaudado += unImporte
+	}
+	method pasarDinero(unImporte,unProfesional){
+		totalRecaudado = (totalRecaudado - unImporte).max(0)
+		unProfesional.cobrar(unImporte)
+	}
+}
 
-  class ProfesionalLibre inherits Profesional{
-      method agregar(unaProvincia){
-        provincias.add(unaProvincia)
-      }
-  }
+object asociacion{
+	var totalRecaudado = 0
+	method recibirDonacion(unImporte){totalRecaudado += unImporte}
+	method totalRecaudado() = totalRecaudado
+}
